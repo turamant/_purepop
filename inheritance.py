@@ -77,7 +77,47 @@ class NoteBook(PersonalComputer):
         for k, v in NoteBook.InfoNoteBook.items():
             print(k, ':', v)
 
+class Human:
+    def __init__(self):
+        self.hand = 2
+        self.leg = 2
+        self.head = 1
+        self.eye = 2
+        self.mouth = 1
+        self.nose = 1
 
+
+class Man(Human):
+    infoman = {}
+    def __init__(self, age, sex, mustache, status, *args):
+        super().__init__()
+        self.infoman['возраст'] = age
+        self.infoman['пол'] = sex
+        self.infoman['усы'] = mustache
+        self.infoman['стаус'] = status
+        self.infoman['руки'] = args[0]
+        self.infoman['ноги'] = args[1]
+        self.infoman['голова'] = args[2]
+        self.infoman['глаза'] = args[3]
+        self.infoman['рот'] = args[4]
+        self.infoman['нос'] = args[5]
+
+    def infoMan(self):
+        for k,v in Man.infoman.items():
+            print(k,'-->',v)
+
+class Woman(Man):
+    def infoMan(self):
+        print("Это женщина")
+        super().infoMan()
+
+
+
+man = Man(53,'Mужчина','Y','Женат',2,2,1,2,1,1)
+man.infoMan()
+print('='*25)
+woman = Woman(54,'Женщина','N','Разведенка',2,2,1,2,1,1)
+woman.infoMan()
 pc = DesktopPC('Soni`17','key101','genius','127x123x78',256,'1Tb','iCore7','Intel Pentium',)
 pc.getInfoPC()
 print(25 * '-')
